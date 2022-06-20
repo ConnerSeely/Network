@@ -2,29 +2,31 @@
   <header>
     <Navbar />
   </header>
-  <main>
-    <router-view />
-  </main>
-  <footer>
-    <div class="bg-dark text-light text-center p-4">
-      Made with 💖 by CodeWorks
+  <main class="container-fluid">
+    <div class="row p-0">
+      <div class="col-md-2 p-0">
+        <Sidebar />
+      </div>
+      <!-- TODO overflow scroll-y -->
+      <div class="col-10 p-0">
+        <router-view />
+      </div>
     </div>
-  </footer>
+  </main>
 </template>
 
 <script>
-import { computed } from 'vue'
-import { AppState } from './AppState'
+import { computed } from "vue";
+import { AppState } from "./AppState";
 export default {
-  name: 'App',
+  name: "App",
   setup() {
     return {
-      appState: computed(() => AppState)
-    }
-  }
-}
+      appState: computed(() => AppState),
+    };
+  },
+};
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
-
 </style>
