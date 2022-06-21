@@ -9,6 +9,11 @@ class PostsService {
         logger.log(res.data)
         AppState.posts = res.data.posts
     }
+    async getAds() {
+        const res = await api.get('/api/ads')
+        logger.log(res.data)
+        AppState.ads = res.data
+    }
     async getProfilePosts(profileId) {
         const res = await api.get(`api/posts?creatorId=${profileId}`)
         logger.log('-getProfilePosts-', res.data)
@@ -37,6 +42,22 @@ class PostsService {
         AppState.totalPages = res.data.totalPages
     }
     async changePagePrev(pageNumber) {
+        const res = await api.get(`api/posts?page=${pageNumber}`)
+        logger.log('-changePage-', res.data)
+        AppState.posts = res.data.posts
+        logger.log(AppState.posts, 'new page posts')
+        AppState.currentPage -= 1;
+        AppState.totalPages = res.data.totalPages
+    }
+    async changePageProfile(pageNumber) {
+        const res = await api.get(`api/posts?page=${pageNumber}`)
+        logger.log('-changePage-', res.data)
+        AppState.posts = res.data.posts
+        logger.log(AppState.posts, 'new page posts')
+        AppState.currentPage += 1;
+        AppState.totalPages = res.data.totalPages
+    }
+    async changePagePrevProfile(pageNumber) {
         const res = await api.get(`api/posts?page=${pageNumber}`)
         logger.log('-changePage-', res.data)
         AppState.posts = res.data.posts

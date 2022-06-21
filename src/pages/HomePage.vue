@@ -6,6 +6,9 @@
       <div class="col-md-7" v-for="p in posts" :key="p.id">
         <Post :post="p" />
       </div>
+      <div class="col-md-3" v-for="a in ads" :key="a.id">
+        <Ad :ad="a" />
+      </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-3 text-end">
@@ -43,12 +46,14 @@ export default {
     onMounted(async () => {
       try {
         await postsService.getPosts();
+        await postsService.getAds();
       } catch (error) {
         logger.log(error);
         Pop.toast(error.message, "error");
       }
     });
     return {
+      ads: computed(() => AppState.ads),
       posts: computed(() => AppState.posts),
       account: computed(() => AppState.account),
       currentPage: computed(() => AppState.currentPage),

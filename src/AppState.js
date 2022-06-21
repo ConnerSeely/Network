@@ -6,6 +6,7 @@ export const AppState = reactive({
   account: {},
   profile: {},
   posts: {},
+  ads: [],
   currentPage: 1,
   totalPages: {},
   query: ''

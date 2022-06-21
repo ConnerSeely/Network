@@ -19,6 +19,18 @@
             <input type="text" v-model="editable.picture" />
             <label for="">account cover image</label>
             <input type="text" v-model="editable.coverImg" />
+            <label for="">bio</label>
+            <input type="text" v-model="editable.bio" />
+            <label for="">Github</label>
+            <input type="text" v-model="editable.github" />
+            <label for="">linkedin</label>
+            <input type="text" v-model="editable.linkedin" />
+            <label for="">resume</label>
+            <input type="text" v-model="editable.resume" />
+            <label for="">class</label>
+            <input type="text" v-model="editable.class" />
+            <label for="">graduated</label>
+            <input type="checkbox" v-model="editable.graduated" />
             <button class="btn btn-primary">save</button>
           </form>
         </div>
